@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research & Innovation — Astranova Intelligence</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── PAGE HERO ─────────────────────────────── */
+.page-hero { position:relative; min-height:400px; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; padding-top:var(--nav-h); }
+.page-hero .hero-bg { position:absolute; inset:0; background:linear-gradient(135deg,rgba(0,119,255,.15) 0%,transparent 55%), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80') center/cover no-repeat; }
+.page-hero .hero-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(to right,rgba(2,10,20,.95) 40%,rgba(2,10,20,.6) 100%), linear-gradient(to bottom,transparent 40%,rgba(2,10,20,.95) 100%); }
+.page-hero-content { position:relative; z-index:2; padding:56px var(--section-px); }
+.page-hero-title { font-family:var(--font-head); font-size:clamp(26px,3.5vw,52px); font-weight:900; line-height:1.1; text-transform:uppercase; letter-spacing:2px; margin-bottom:14px; }
+.page-hero-title .hl { color:var(--accent); }
+.page-hero-desc { font-size:13px; color:var(--text-muted); max-width:520px; line-height:1.9; }
+.breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:18px; font-family:var(--font-sub); font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); }
+.breadcrumb a { color:var(--accent); transition:opacity .2s; }
+
+/* ── METRICS BAR ───────────────────────────── */
+.metrics-bar { display:flex; background:rgba(5,15,30,.97); border-bottom:1px solid var(--border); }
+.metric-cell { flex:1; padding:26px 20px; text-align:center; border-right:1px solid var(--border); }
+.metric-cell:last-child { border-right:none; }
+.metric-val { font-family:var(--font-head); font-size:26px; font-weight:900; color:var(--accent); letter-spacing:1px; }
+.metric-lbl { font-family:var(--font-sub); font-size:9px; font-weight:700; letter-spacing:2px; color:var(--text-muted); text-transform:uppercase; margin-top:5px; }
+
+/* ── RESEARCH AREAS ────────────────────────── */
+.research-areas-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; }
+.ra-card { background:var(--bg-card); border:1px solid var(--border); overflow:hidden; transition:border-color .3s; }
+.ra-card:hover { border-color:var(--accent); }
+.ra-card-inner { display:grid; grid-template-columns:1fr 1fr; }
+.ra-img { height:100%; min-height:300px; overflow:hidden; position:relative; }
+.ra-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.45) saturate(.7); transition:filter .4s,transform .5s; }
+.ra-card:hover .ra-img img { filter:brightness(.65) saturate(1); transform:scale(1.05); }
+.ra-img-overlay { position:absolute; inset:0; background:linear-gradient(to right,transparent 40%,rgba(2,10,20,.9)); }
+.ra-body { padding:36px 32px; display:flex; flex-direction:column; }
+.ra-num { font-family:var(--font-head); font-size:48px; font-weight:900; color:rgba(0,200,248,.1); line-height:1; margin-bottom:8px; }
+.ra-title { font-family:var(--font-sub); font-size:18px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+.ra-desc { font-size:12px; color:var(--text-muted); line-height:1.85; margin-bottom:20px; flex:1; }
+.ra-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+.ra-tag { font-family:var(--font-sub); font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--accent); border:1px solid rgba(0,200,248,.3); padding:3px 10px; background:rgba(0,200,248,.05); }
+.ra-progress-wrap { margin-top:auto; }
+.ra-progress-label { display:flex; justify-content:space-between; margin-bottom:5px; font-family:var(--font-sub); font-size:10px; color:var(--text-muted); letter-spacing:1px; }
+.ra-progress-bar { height:2px; background:rgba(255,255,255,.08); position:relative; }
+.ra-progress-fill { position:absolute; left:0; top:0; height:100%; background:var(--accent); transition:width 1s ease; }
+
+/* ── PUBLICATIONS ──────────────────────────── */
+.pubs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.pub-card { background:var(--bg-card); border:1px solid var(--border); padding:26px 24px; transition:border-color .3s; display:flex; flex-direction:column; }
+.pub-card:hover { border-color:var(--accent); }
+.pub-type { font-family:var(--font-sub); font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+.pub-title { font-family:var(--font-sub); font-size:14px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; margin-bottom:10px; line-height:1.4; }
+.pub-abstract { font-size:11.5px; color:var(--text-muted); line-height:1.75; margin-bottom:16px; flex:1; }
+.pub-meta { display:flex; align-items:center; justify-content:space-between; margin-top:auto; font-family:var(--font-sub); font-size:10px; color:var(--text-muted); letter-spacing:1px; }
+.pub-download { font-family:var(--font-sub); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); display:inline-flex; align-items:center; gap:6px; transition:gap .2s; }
+.pub-download:hover { gap:10px; }
+
+/* ── OPEN SOURCE ───────────────────────────── */
+.oss-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
+.oss-card { background:var(--bg-card); border:1px solid var(--border); padding:24px 20px; transition:border-color .3s; }
+.oss-card:hover { border-color:var(--accent); }
+.oss-icon { width:36px; height:36px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:12px; color:var(--accent); background:var(--bg-deep); }
+.oss-name { font-family:var(--font-sub); font-size:13px; font-weight:700; text-transform:uppercase; margin-bottom:6px; }
+.oss-desc { font-size:11px; color:var(--text-muted); line-height:1.65; margin-bottom:12px; }
+.oss-stars { font-family:var(--font-sub); font-size:10px; color:var(--text-muted); letter-spacing:1px; }
+
+/* ── TEAM ──────────────────────────────────── */
+.team-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
+.team-card { background:var(--bg-card); border:1px solid var(--border); overflow:hidden; transition:border-color .3s; }
+.team-card:hover { border-color:var(--accent); }
+.team-img { height:180px; overflow:hidden; }
+.team-img img { width:100%; height:100%; object-fit:cover; filter:grayscale(50%) brightness(.7); transition:filter .4s; }
+.team-card:hover .team-img img { filter:grayscale(0%) brightness(.9); }
+.team-body { padding:16px 18px; }
+.team-name { font-family:var(--font-sub); font-size:13px; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+.team-role { font-family:var(--font-sub); font-size:9px; font-weight:600; letter-spacing:2px; color:var(--accent); text-transform:uppercase; }
+
+/* ── CTA ───────────────────────────────────── */
+.page-cta { background:linear-gradient(135deg,rgba(0,119,255,.1),rgba(0,200,248,.04)); border-top:1px solid var(--border); border-bottom:1px solid var(--border); border-left:4px solid var(--accent); padding:40px var(--section-px); display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap; }
+.page-cta-text { font-family:var(--font-head); font-size:16px; font-weight:700; text-transform:uppercase; letter-spacing:2px; line-height:1.4; max-width:600px; }
+.page-cta-text .hl { color:var(--accent); }
+.page-cta-btns { display:flex; gap:10px; flex-shrink:0; flex-wrap:wrap; }
+
+@media(max-width:1024px){ .research-areas-grid{grid-template-columns:1fr;} .ra-card-inner{grid-template-columns:1fr;} .ra-img{min-height:220px;} .team-grid{grid-template-columns:repeat(2,1fr);} .oss-grid{grid-template-columns:repeat(2,1fr);} .pubs-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:768px){ .metrics-bar{flex-wrap:wrap;} .metric-cell{flex:1 1 45%; border:none; border-bottom:1px solid var(--border);} .pubs-grid{grid-template-columns:1fr;} .page-cta{flex-direction:column; align-items:flex-start;} .oss-grid{grid-template-columns:1fr 1fr;} }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════ -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.svg" alt="Astranova Intelligence" width="160" height="48">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#technologies">Technologies</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="research.html" style="color:var(--accent)">Research</a></li>
+    <li><a href="index.html#about">About Us</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="index.html#contact" class="nav-cta">Partner With Us</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+    <li><a href="index.html#technologies" onclick="closeMobileMenu()">Technologies</a></li>
+    <li><a href="solutions.html" onclick="closeMobileMenu()">Solutions</a></li>
+    <li><a href="products.html" onclick="closeMobileMenu()">Products</a></li>
+    <li><a href="research.html" onclick="closeMobileMenu()">Research</a></li>
+    <li><a href="index.html#about" onclick="closeMobileMenu()">About Us</a></li>
+    <li><a href="careers.html" onclick="closeMobileMenu()">Careers</a></li>
+    <li><a href="index.html#contact" onclick="closeMobileMenu()">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="btn-primary mobile-cta" onclick="closeMobileMenu()">Partner With Us →</a>
+</div>
+
+<!-- ══ PAGE HERO ═════════════════════════════════ -->
+<div class="page-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Research</span></div>
+    <div class="section-label"><span class="dot"></span> Labs & Publications</div>
+    <h1 class="page-hero-title">Research &amp; <span class="hl">Innovation</span></h1>
+    <p class="page-hero-desc">Advancing the frontiers of autonomous intelligence, sovereign computing, and planetary-scale IoT — with open science at the core.</p>
+  </div>
+</div>
+
+<!-- METRICS BAR -->
+<div class="metrics-bar">
+  <div class="metric-cell"><div class="metric-val">47</div><div class="metric-lbl">Published Papers</div></div>
+  <div class="metric-cell"><div class="metric-val">12</div><div class="metric-lbl">Active Patents</div></div>
+  <div class="metric-cell"><div class="metric-val">4</div><div class="metric-lbl">Research Divisions</div></div>
+  <div class="metric-cell"><div class="metric-val">8</div><div class="metric-lbl">University Partners</div></div>
+  <div class="metric-cell"><div class="metric-val">$4.2M</div><div class="metric-lbl">R&amp;D Annual Budget</div></div>
+  <div class="metric-cell"><div class="metric-val">22</div><div class="metric-lbl">Lead Researchers</div></div>
+</div>
+
+<!-- ══ RESEARCH AREAS ════════════════════════════ -->
+<section style="background:var(--bg-dark); padding:64px var(--section-px);">
+  <div class="section-header fade-up" style="margin-bottom:40px;">
+    <div class="section-header-row">
+      <div>
+        <div class="section-label"><span class="dot"></span> Core Divisions</div>
+        <h2 class="section-title">Research <span class="hl">Areas</span></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="research-areas-grid fade-up" id="whitepapers">
+
+    <div class="ra-card">
+      <div class="ra-card-inner">
+        <div class="ra-img">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80" alt="AI Research">
+          <div class="ra-img-overlay"></div>
+        </div>
+        <div class="ra-body">
+          <div class="ra-num">01</div>
+          <div class="ra-title">Autonomous Intelligence Systems</div>
+          <div class="ra-desc">Pushing the boundary of edge AI inference, multi-agent coordination, and situation-aware decision engines that operate with zero cloud latency in safety-critical environments. Our focus spans neuromorphic hardware co-design, federated learning under bandwidth constraints, and adversarial robustness in real-world deployments.</div>
+          <div class="ra-tags">
+            <span class="ra-tag">Edge AI</span>
+            <span class="ra-tag">Multi-Agent RL</span>
+            <span class="ra-tag">Federated Learning</span>
+            <span class="ra-tag">Neuromorphic</span>
+          </div>
+          <div class="ra-progress-wrap">
+            <div class="ra-progress-label"><span>Current Research Maturity</span><span>78%</span></div>
+            <div class="ra-progress-bar"><div class="ra-progress-fill" style="width:78%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ra-card">
+      <div class="ra-card-inner">
+        <div class="ra-body">
+          <div class="ra-num">02</div>
+          <div class="ra-title">Sovereign Infrastructure & Cryptography</div>
+          <div class="ra-desc">Developing post-quantum cryptographic protocols, zero-knowledge data vaults, and decentralized consensus mechanisms for national-scale digital sovereignty. Our cryptography lab collaborates with government agencies to replace foreign-controlled infrastructure with open, verifiable alternatives.</div>
+          <div class="ra-tags">
+            <span class="ra-tag">Post-Quantum</span>
+            <span class="ra-tag">ZK Proofs</span>
+            <span class="ra-tag">Blockchain</span>
+            <span class="ra-tag">PKI</span>
+          </div>
+          <div class="ra-progress-wrap">
+            <div class="ra-progress-label"><span>Current Research Maturity</span><span>65%</span></div>
+            <div class="ra-progress-bar"><div class="ra-progress-fill" style="width:65%"></div></div>
+          </div>
+        </div>
+        <div class="ra-img">
+          <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&q=80" alt="Cryptography">
+          <div class="ra-img-overlay" style="background:linear-gradient(to left,transparent 40%,rgba(2,10,20,.9))"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ra-card">
+      <div class="ra-card-inner">
+        <div class="ra-img">
+          <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600&q=80" alt="Robotics Research">
+          <div class="ra-img-overlay"></div>
+        </div>
+        <div class="ra-body">
+          <div class="ra-num">03</div>
+          <div class="ra-title">Robotic Systems & Bio-Inspired Motion</div>
+          <div class="ra-desc">Researching legged locomotion over unstructured terrain, swarm coordination algorithms, and human-robot collaboration protocols for real-world deployments. Drawing from biomechanics and evolutionary algorithms to create robots that navigate environments humans cannot.</div>
+          <div class="ra-tags">
+            <span class="ra-tag">Locomotion</span>
+            <span class="ra-tag">Swarm AI</span>
+            <span class="ra-tag">SLAM</span>
+            <span class="ra-tag">HRI</span>
+          </div>
+          <div class="ra-progress-wrap">
+            <div class="ra-progress-label"><span>Current Research Maturity</span><span>71%</span></div>
+            <div class="ra-progress-bar"><div class="ra-progress-fill" style="width:71%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ra-card">
+      <div class="ra-card-inner">
+        <div class="ra-body">
+          <div class="ra-num">04</div>
+          <div class="ra-title">Planetary IoT & Earth Intelligence</div>
+          <div class="ra-desc">Building the sensor networks, compression algorithms, and AI inference pipelines that transform raw environmental data into actionable intelligence at planetary scale. Research spans ultra-low-power sensor design, LPWAN protocol optimization, and AI-driven anomaly detection from satellite and ground sensor fusion.</div>
+          <div class="ra-tags">
+            <span class="ra-tag">LoRa/LoRaWAN</span>
+            <span class="ra-tag">Satellite IoT</span>
+            <span class="ra-tag">TinyML</span>
+            <span class="ra-tag">Digital Twin</span>
+          </div>
+          <div class="ra-progress-wrap">
+            <div class="ra-progress-label"><span>Current Research Maturity</span><span>83%</span></div>
+            <div class="ra-progress-bar"><div class="ra-progress-fill" style="width:83%"></div></div>
+          </div>
+        </div>
+        <div class="ra-img">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="Earth Intelligence">
+          <div class="ra-img-overlay" style="background:linear-gradient(to left,transparent 40%,rgba(2,10,20,.9))"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ PUBLICATIONS ═══════════════════════════════ -->
+<section style="background:var(--bg-deep); padding:64px var(--section-px); border-top:1px solid var(--border);" id="docs">
+  <div class="section-header fade-up" style="margin-bottom:36px;">
+    <div class="section-header-row">
+      <div>
+        <div class="section-label"><span class="dot"></span> Open Research</div>
+        <h2 class="section-title">Whitepapers &amp; <span class="hl">Publications</span></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="pubs-grid fade-up">
+    <div class="pub-card">
+      <div class="pub-type">Whitepaper · 2024</div>
+      <div class="pub-title">Federated Learning Over Bandwidth-Constrained Mesh Networks</div>
+      <div class="pub-abstract">We propose a novel gradient compression scheme that reduces communication overhead by 94% while retaining 99.1% model accuracy in large-scale IoT deployments across contested RF environments.</div>
+      <div class="pub-meta">
+        <span>AN Research Labs · 28 pages</span>
+        <a href="#" class="pub-download">Download PDF ↓</a>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-type">Technical Report · 2024</div>
+      <div class="pub-title">Post-Quantum Cryptography in Sovereign Government Deployments</div>
+      <div class="pub-abstract">A practical evaluation of CRYSTALS-Kyber and Dilithium for national PKI migration, documenting performance benchmarks on constrained edge hardware typical of government field deployments.</div>
+      <div class="pub-meta">
+        <span>AN Cryptography Lab · 44 pages</span>
+        <a href="#" class="pub-download">Download PDF ↓</a>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-type">Conference Paper · IEEE ICRA 2024</div>
+      <div class="pub-title">Bio-Inspired Quadruped Locomotion on Himalayan Terrain</div>
+      <div class="pub-abstract">Deployment results of AN Cargo Rover across 14 Himalayan test sites at altitudes between 2,800m–4,200m. We present a terrain-adaptive gait controller achieving 94% traversal success on scree, ice, and unstable ground.</div>
+      <div class="pub-meta">
+        <span>AN Robotics Lab · 12 pages</span>
+        <a href="#" class="pub-download">Download PDF ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OPEN SOURCE ════════════════════════════════ -->
+<section style="background:var(--bg-dark); padding:64px var(--section-px); border-top:1px solid var(--border);">
+  <div class="section-header fade-up" style="margin-bottom:36px;">
+    <div class="section-header-row">
+      <div>
+        <div class="section-label"><span class="dot"></span> Community</div>
+        <h2 class="section-title">Open Source <span class="hl">Tools</span></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="oss-grid fade-up">
+    <div class="oss-card">
+      <div class="oss-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      <div class="oss-name">AN-Mesh-SDK</div>
+      <div class="oss-desc">Lightweight mesh networking library for ESP32 and Linux edge devices. Supports LoRa, WiFi, BLE transport layers with protocol-agnostic API.</div>
+      <div class="oss-stars">★ 2.4k stars · GitHub</div>
+    </div>
+    <div class="oss-card">
+      <div class="oss-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="oss-name">TerraViz</div>
+      <div class="oss-desc">Real-time geospatial IoT visualization framework. WebGL-accelerated rendering of up to 1M sensor data points with live streaming support.</div>
+      <div class="oss-stars">★ 1.8k stars · GitHub</div>
+    </div>
+    <div class="oss-card">
+      <div class="oss-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="oss-name">SovereignAuth</div>
+      <div class="oss-desc">Zero-dependency authentication library implementing CRYSTALS-Kyber key exchange and Dilithium signatures for post-quantum secure applications.</div>
+      <div class="oss-stars">★ 1.1k stars · GitHub</div>
+    </div>
+    <div class="oss-card">
+      <div class="oss-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div>
+      <div class="oss-name">DroneOS Sim</div>
+      <div class="oss-desc">Physics-accurate drone simulation environment for testing autonomous flight controllers, swarm coordination, and BVLOS mission planning before real deployment.</div>
+      <div class="oss-stars">★ 870 stars · GitHub</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RESEARCH TEAM ══════════════════════════════ -->
+<section style="background:var(--bg-deep); padding:64px var(--section-px); border-top:1px solid var(--border);">
+  <div class="section-header fade-up" style="margin-bottom:36px;">
+    <div class="section-header-row">
+      <div>
+        <div class="section-label"><span class="dot"></span> The Minds Behind The Work</div>
+        <h2 class="section-title">Research <span class="hl">Team</span></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-grid fade-up">
+    <div class="team-card">
+      <div class="team-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Researcher"></div>
+      <div class="team-body">
+        <div class="team-name">Dr. Aryan Mehta</div>
+        <div class="team-role">Head of AI Research</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80" alt="Researcher"></div>
+      <div class="team-body">
+        <div class="team-name">Dr. Sita Adhikari</div>
+        <div class="team-role">Lead Cryptographer</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Researcher"></div>
+      <div class="team-body">
+        <div class="team-name">Raj Thapa</div>
+        <div class="team-role">Chief Robotics Architect</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Researcher"></div>
+      <div class="team-body">
+        <div class="team-name">Dr. Priya Nair</div>
+        <div class="team-role">IoT Systems Research Lead</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PAGE CTA ═══════════════════════════════════ -->
+<div class="page-cta">
+  <div class="page-cta-text">Interested in <span class="hl">research collaboration</span> or licensing our technologies?</div>
+  <div class="page-cta-btns">
+    <a href="index.html#contact" class="btn-primary">Collaborate With Us →</a>
+    <a href="#" class="btn-outline">Browse Publications</a>
+  </div>
+</div>
+
+<!-- ══ FOOTER ════════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="nav-logo" style="margin-bottom:6px;">
+        <img src="assets/logo.svg" alt="Astranova Intelligence" width="160" height="48">
+      </a>
+      <p class="footer-brand-desc">Building sovereign AI, robotics, and decentralized infrastructure for a smarter, safer future.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#about">Mission</a></li>
+        <li><a href="index.html#about">Values</a></li>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="news.html">Newsroom</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Technologies</div>
+      <ul class="footer-links">
+        <li><a href="index.html#technologies">AI &amp; Intelligence</a></li>
+        <li><a href="index.html#technologies">Robotics</a></li>
+        <li><a href="index.html#technologies">Drone Systems</a></li>
+        <li><a href="index.html#technologies">Agro-IoT</a></li>
+        <li><a href="index.html#technologies">Cybersecurity</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <ul class="footer-links">
+        <li><a href="research.html">Research</a></li>
+        <li><a href="research.html">Whitepapers</a></li>
+        <li><a href="news.html">Blog</a></li>
+        <li><a href="research.html">Documentation</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:info@astranovaint.com">info@astranovaint.com</a></li>
+        <li><a href="#">+977 1 456 7890</a></li>
+        <li><a href="#">Kathmandu, Nepal</a></li>
+        <li><a href="index.html#contact">Get in Touch</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Astranova Intelligence. All rights reserved.</div>
+    <div class="footer-socials-wrap">
+      <span class="footer-follow">Follow Us</span>
+      <div class="footer-socials">
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.518-8.594L2.25 2.25h6.044l4.277 5.662L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

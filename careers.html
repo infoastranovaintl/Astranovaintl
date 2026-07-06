@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers — Astranova Intelligence</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── PAGE HERO ─────────────────────────────── */
+.page-hero { position:relative; min-height:400px; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; padding-top:var(--nav-h); }
+.page-hero .hero-bg { position:absolute; inset:0; background:linear-gradient(135deg,rgba(0,119,255,.12) 0%,transparent 55%), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80') center/cover no-repeat; }
+.page-hero .hero-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(to right,rgba(2,10,20,.95) 40%,rgba(2,10,20,.6) 100%), linear-gradient(to bottom,transparent 40%,rgba(2,10,20,.94) 100%); }
+.page-hero-content { position:relative; z-index:2; padding:56px var(--section-px); }
+.page-hero-title { font-family:var(--font-head); font-size:clamp(26px,3.5vw,52px); font-weight:900; line-height:1.1; text-transform:uppercase; letter-spacing:2px; margin-bottom:14px; }
+.page-hero-title .hl { color:var(--accent); }
+.page-hero-desc { font-size:13px; color:var(--text-muted); max-width:520px; line-height:1.9; }
+.breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:18px; font-family:var(--font-sub); font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); }
+.breadcrumb a { color:var(--accent); transition:opacity .2s; }
+
+/* ── CULTURE STRIP ─────────────────────────── */
+.culture-strip { display:grid; grid-template-columns:repeat(4,1fr); }
+.culture-item { padding:36px 28px; border-right:1px solid var(--border); background:var(--bg-card); position:relative; overflow:hidden; }
+.culture-item:last-child { border-right:none; }
+.culture-item::before { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
+.culture-item:hover::before { transform:scaleX(1); }
+.culture-icon { width:42px; height:42px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:14px; color:var(--accent); }
+.culture-title { font-family:var(--font-sub); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+.culture-desc { font-size:11.5px; color:var(--text-muted); line-height:1.75; }
+
+/* ── DEPT FILTER ───────────────────────────── */
+.dept-tabs { display:flex; gap:0; flex-wrap:wrap; border-bottom:1px solid var(--border); margin-bottom:40px; }
+.dept-tab { font-family:var(--font-sub); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); padding:14px 22px; cursor:pointer; border-bottom:2px solid transparent; transition:color .25s,border-color .25s; background:none; border-left:none; border-right:none; border-top:none; }
+.dept-tab:hover { color:var(--fg); }
+.dept-tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+
+/* ── JOB LISTINGS ──────────────────────────── */
+.jobs-list { display:flex; flex-direction:column; gap:2px; }
+.job-item { background:var(--bg-card); border:1px solid var(--border); padding:24px 28px; display:grid; grid-template-columns:1fr auto; align-items:center; gap:20px; cursor:pointer; transition:border-color .3s; }
+.job-item:hover { border-color:var(--accent); }
+.job-item-left {}
+.job-dept { font-family:var(--font-sub); font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+.job-title { font-family:var(--font-sub); font-size:16px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+.job-meta { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.job-tag { font-family:var(--font-sub); font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--border); padding:2px 9px; background:var(--bg-deep); }
+.job-apply { font-family:var(--font-sub); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); white-space:nowrap; display:inline-flex; align-items:center; gap:6px; transition:gap .2s; }
+.job-apply:hover { gap:10px; }
+
+/* ── PERKS GRID ────────────────────────────── */
+.perks-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.perk-card { background:var(--bg-card); border:1px solid var(--border); padding:28px 24px; transition:border-color .3s; }
+.perk-card:hover { border-color:var(--accent); }
+.perk-icon { width:38px; height:38px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:12px; color:var(--accent); background:var(--bg-deep); }
+.perk-title { font-family:var(--font-sub); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:7px; }
+.perk-desc { font-size:11.5px; color:var(--text-muted); line-height:1.75; }
+
+/* ── HIRING PROCESS ────────────────────────── */
+.process-steps { display:grid; grid-template-columns:repeat(5,1fr); position:relative; }
+.process-steps::before { content:''; position:absolute; top:28px; left:10%; right:10%; height:1px; background:var(--border); z-index:0; }
+.process-step { text-align:center; padding:0 16px 0; position:relative; z-index:1; }
+.step-num { width:56px; height:56px; border:1px solid var(--accent); display:flex; align-items:center; justify-content:center; font-family:var(--font-head); font-size:18px; font-weight:700; color:var(--accent); margin:0 auto 16px; background:var(--bg-dark); }
+.step-title { font-family:var(--font-sub); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+.step-desc { font-size:11px; color:var(--text-muted); line-height:1.65; }
+
+/* ── CTA ───────────────────────────────────── */
+.page-cta { background:linear-gradient(135deg,rgba(0,119,255,.1),rgba(0,200,248,.04)); border-top:1px solid var(--border); border-bottom:1px solid var(--border); border-left:4px solid var(--accent); padding:40px var(--section-px); display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap; }
+.page-cta-text { font-family:var(--font-head); font-size:16px; font-weight:700; text-transform:uppercase; letter-spacing:2px; line-height:1.4; max-width:600px; }
+.page-cta-text .hl { color:var(--accent); }
+.page-cta-btns { display:flex; gap:10px; flex-shrink:0; flex-wrap:wrap; }
+
+@media(max-width:1024px){ .culture-strip{grid-template-columns:1fr 1fr;} .culture-item{border-right:none; border-bottom:1px solid var(--border);} .process-steps{grid-template-columns:1fr 1fr; gap:24px;} .process-steps::before{display:none;} .perks-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:768px){ .culture-strip{grid-template-columns:1fr 1fr;} .job-item{grid-template-columns:1fr; gap:12px;} .page-cta{flex-direction:column; align-items:flex-start;} }
+@media(max-width:480px){ .culture-strip{grid-template-columns:1fr;} .process-steps{grid-template-columns:1fr;} .perks-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════ -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.svg" alt="Astranova Intelligence" width="160" height="48">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#technologies">Technologies</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="index.html#about">About Us</a></li>
+    <li><a href="careers.html" style="color:var(--accent)">Careers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="index.html#contact" class="nav-cta">Partner With Us</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+    <li><a href="index.html#technologies" onclick="closeMobileMenu()">Technologies</a></li>
+    <li><a href="solutions.html" onclick="closeMobileMenu()">Solutions</a></li>
+    <li><a href="products.html" onclick="closeMobileMenu()">Products</a></li>
+    <li><a href="research.html" onclick="closeMobileMenu()">Research</a></li>
+    <li><a href="index.html#about" onclick="closeMobileMenu()">About Us</a></li>
+    <li><a href="careers.html" onclick="closeMobileMenu()">Careers</a></li>
+    <li><a href="index.html#contact" onclick="closeMobileMenu()">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="btn-primary mobile-cta" onclick="closeMobileMenu()">Partner With Us →</a>
+</div>
+
+<!-- ══ PAGE HERO ═════════════════════════════════ -->
+<div class="page-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Careers</span></div>
+    <div class="section-label"><span class="dot"></span> Join The Mission</div>
+    <h1 class="page-hero-title">Build The <span class="hl">Future</span><br>With Us</h1>
+    <p class="page-hero-desc">We're looking for engineers, scientists, and visionaries who want their work to matter — protecting nations, feeding communities, and connecting the unconnected.</p>
+  </div>
+</div>
+
+<!-- ══ CULTURE STRIP ═════════════════════════════ -->
+<div class="culture-strip">
+  <div class="culture-item fade-up">
+    <div class="culture-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+    <div class="culture-title">Mission-First Work</div>
+    <div class="culture-desc">Every line of code, every circuit, every algorithm here has a tangible real-world purpose — protecting borders, growing food, or lighting up remote villages.</div>
+  </div>
+  <div class="culture-item fade-up">
+    <div class="culture-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+    <div class="culture-title">Small Teams, Big Scope</div>
+    <div class="culture-desc">No bureaucracy. Small, autonomous squads own entire product lines. Your decisions ship into the field, not into a backlog.</div>
+  </div>
+  <div class="culture-item fade-up">
+    <div class="culture-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="culture-title">Frontier Technology</div>
+    <div class="culture-desc">Work on post-quantum cryptography, autonomous robotics, AI inference at the edge, and planetary-scale mesh networks — problems that don't have textbook solutions yet.</div>
+  </div>
+  <div class="culture-item fade-up">
+    <div class="culture-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg></div>
+    <div class="culture-title">Grow Fast</div>
+    <div class="culture-desc">We're scaling rapidly. Exceptional people move into leadership in months, not years. We fund certifications, conferences, and advanced degrees.</div>
+  </div>
+</div>
+
+<!-- ══ JOB LISTINGS ══════════════════════════════ -->
+<section style="background:var(--bg-dark); padding:64px var(--section-px);" id="positions">
+  <div class="section-header fade-up" style="margin-bottom:36px;">
+    <div class="section-header-row">
+      <div>
+        <div class="section-label"><span class="dot"></span> 12 Open Roles</div>
+        <h2 class="section-title">Open <span class="hl">Positions</span></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="dept-tabs fade-up">
+    <button class="dept-tab active" onclick="filterJobs('all',this)">All Departments</button>
+    <button class="dept-tab" onclick="filterJobs('engineering',this)">Engineering</button>
+    <button class="dept-tab" onclick="filterJobs('ai',this)">AI & Research</button>
+    <button class="dept-tab" onclick="filterJobs('robotics',this)">Robotics</button>
+    <button class="dept-tab" onclick="filterJobs('ops',this)">Operations</button>
+    <button class="dept-tab" onclick="filterJobs('business',this)">Business</button>
+  </div>
+
+  <div class="jobs-list fade-up" id="jobsList">
+
+    <div class="job-item" data-dept="ai">
+      <div class="job-item-left">
+        <div class="job-dept">AI &amp; Research</div>
+        <div class="job-title">Senior ML Engineer — Edge Inference</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Kathmandu / Remote</span>
+          <span class="job-tag">5+ Years</span>
+          <span class="job-tag">NPR 3.5–5.5L/mo</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="engineering">
+      <div class="job-item-left">
+        <div class="job-dept">Embedded Engineering</div>
+        <div class="job-title">Firmware Engineer — ESP32 / RTOS</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Kathmandu</span>
+          <span class="job-tag">3+ Years</span>
+          <span class="job-tag">NPR 2.5–3.8L/mo</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="robotics">
+      <div class="job-item-left">
+        <div class="job-dept">Robotics</div>
+        <div class="job-title">Robotics Systems Engineer — Legged Platforms</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Kathmandu</span>
+          <span class="job-tag">4+ Years</span>
+          <span class="job-tag">NPR 3.2–4.8L/mo</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="ai">
+      <div class="job-item-left">
+        <div class="job-dept">AI &amp; Research</div>
+        <div class="job-title">Computer Vision Researcher — Aerial Imaging</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Remote-Friendly</span>
+          <span class="job-tag">PhD Preferred</span>
+          <span class="job-tag">NPR 4.0–6.5L/mo</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="engineering">
+      <div class="job-item-left">
+        <div class="job-dept">Engineering</div>
+        <div class="job-title">Full-Stack Engineer — Web Platform</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Kathmandu / Hybrid</span>
+          <span class="job-tag">3+ Years</span>
+          <span class="job-tag">NPR 2.2–3.5L/mo</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="robotics">
+      <div class="job-item-left">
+        <div class="job-dept">Robotics</div>
+        <div class="job-title">Drone Systems Architect</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Kathmandu</span>
+          <span class="job-tag">6+ Years</span>
+          <span class="job-tag">Negotiable</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="ai">
+      <div class="job-item-left">
+        <div class="job-dept">AI &amp; Research</div>
+        <div class="job-title">Cryptography Engineer — Post-Quantum Protocols</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Kathmandu / Remote</span>
+          <span class="job-tag">5+ Years</span>
+          <span class="job-tag">NPR 4.5–7.0L/mo</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="ops">
+      <div class="job-item-left">
+        <div class="job-dept">Field Operations</div>
+        <div class="job-title">Field Deployment Engineer</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Nepal + Regional Travel</span>
+          <span class="job-tag">2+ Years</span>
+          <span class="job-tag">NPR 1.8–2.8L/mo</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="ops">
+      <div class="job-item-left">
+        <div class="job-dept">Operations</div>
+        <div class="job-title">Hardware Supply Chain Manager</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Kathmandu</span>
+          <span class="job-tag">4+ Years</span>
+          <span class="job-tag">NPR 2.5–3.5L/mo</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="business">
+      <div class="job-item-left">
+        <div class="job-dept">Business Development</div>
+        <div class="job-title">Government Affairs Manager — South Asia</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Kathmandu + Travel</span>
+          <span class="job-tag">7+ Years</span>
+          <span class="job-tag">Negotiable</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="engineering">
+      <div class="job-item-left">
+        <div class="job-dept">Engineering</div>
+        <div class="job-title">RF &amp; Wireless Systems Engineer</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Kathmandu</span>
+          <span class="job-tag">3+ Years</span>
+          <span class="job-tag">NPR 2.8–4.2L/mo</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+    <div class="job-item" data-dept="business">
+      <div class="job-item-left">
+        <div class="job-dept">Business Development</div>
+        <div class="job-title">Technical Sales Lead — Defense Sector</div>
+        <div class="job-meta">
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Kathmandu + Travel</span>
+          <span class="job-tag">5+ Years</span>
+          <span class="job-tag">NPR 3.0–4.5L/mo + Commission</span>
+        </div>
+      </div>
+      <a href="index.html#contact" class="job-apply">Apply Now →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ PERKS ══════════════════════════════════════ -->
+<section style="background:var(--bg-deep); padding:64px var(--section-px); border-top:1px solid var(--border);">
+  <div class="section-header fade-up" style="margin-bottom:36px;">
+    <div class="section-header-row">
+      <div>
+        <div class="section-label"><span class="dot"></span> What We Offer</div>
+        <h2 class="section-title">Benefits &amp; <span class="hl">Perks</span></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="perks-grid fade-up">
+    <div class="perk-card">
+      <div class="perk-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="perk-title">Sovereign-Grade Health Cover</div>
+      <div class="perk-desc">Full medical, dental, and vision insurance for you and your dependants. Annual wellness credit of NPR 50,000 for gym, therapy, or preventive care.</div>
+    </div>
+    <div class="perk-card">
+      <div class="perk-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+      <div class="perk-title">Learning & Development</div>
+      <div class="perk-desc">NPR 1.5L annual education budget. We sponsor certifications, conference talks, and advanced degrees. Internal R&D fridays — 20% time for your own experiments.</div>
+    </div>
+    <div class="perk-card">
+      <div class="perk-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <div class="perk-title">Flexible Working Hours</div>
+      <div class="perk-desc">Core hours 10AM–3PM, otherwise schedule your own day. Remote-friendly roles available. Result-oriented culture — we measure output, not hours.</div>
+    </div>
+    <div class="perk-card">
+      <div class="perk-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+      <div class="perk-title">Equity & Bonus</div>
+      <div class="perk-desc">Performance-linked bonuses up to 25% of base salary. Employee stock option pool (ESOP) for senior roles. Annual salary review with transparent band progression.</div>
+    </div>
+    <div class="perk-card">
+      <div class="perk-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="perk-title">World-Class Hardware</div>
+      <div class="perk-desc">Top-of-the-line development machines, lab access to drones, robots, and RF equipment. No waiting for procurement — if you need it to build, you get it.</div>
+    </div>
+    <div class="perk-card">
+      <div class="perk-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div class="perk-title">Mission Trips & Field Work</div>
+      <div class="perk-desc">Deployments to national parks, border regions, rural farms, and smart city projects. See your systems running in the wild — not just in a demo environment.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HIRING PROCESS ═════════════════════════════ -->
+<section style="background:var(--bg-dark); padding:64px var(--section-px); border-top:1px solid var(--border);">
+  <div class="section-header fade-up" style="margin-bottom:48px; text-align:center;">
+    <div class="section-label" style="justify-content:center;"><span class="dot"></span> Simple & Transparent</div>
+    <h2 class="section-title">Our Hiring <span class="hl">Process</span></h2>
+  </div>
+
+  <div class="process-steps fade-up">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Apply</div>
+      <div class="step-desc">Send us your portfolio, GitHub, or relevant work samples. No generic cover letters needed — show us what you've built.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Intro Call</div>
+      <div class="step-desc">A 30-min call with our hiring lead. We talk about your work, your goals, and what the role actually involves day-to-day.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Technical</div>
+      <div class="step-desc">A focused technical exercise relevant to the role — no whiteboard puzzle nonsense. Usually 3–4 hours of real, meaningful work.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Team Meet</div>
+      <div class="step-desc">Meet the people you'd be working with. Ask hard questions. We want the fit to be mutual.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">05</div>
+      <div class="step-title">Offer</div>
+      <div class="step-desc">Transparent offer with full compensation breakdown. No lowball anchoring — we lead with our best number.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PAGE CTA ═══════════════════════════════════ -->
+<div class="page-cta">
+  <div class="page-cta-text">Don't see your role? We're always looking for <span class="hl">exceptional people</span>.</div>
+  <div class="page-cta-btns">
+    <a href="index.html#contact" class="btn-primary">Send Us Your Profile →</a>
+    <a href="research.html" class="btn-outline">See Research Work</a>
+  </div>
+</div>
+
+<!-- ══ FOOTER ════════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="nav-logo" style="margin-bottom:6px;">
+        <img src="assets/logo.svg" alt="Astranova Intelligence" width="160" height="48">
+      </a>
+      <p class="footer-brand-desc">Building sovereign AI, robotics, and decentralized infrastructure for a smarter, safer future.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#about">Mission</a></li>
+        <li><a href="index.html#about">Values</a></li>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="news.html">Newsroom</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Technologies</div>
+      <ul class="footer-links">
+        <li><a href="index.html#technologies">AI &amp; Intelligence</a></li>
+        <li><a href="index.html#technologies">Robotics</a></li>
+        <li><a href="index.html#technologies">Drone Systems</a></li>
+        <li><a href="index.html#technologies">Agro-IoT</a></li>
+        <li><a href="index.html#technologies">Cybersecurity</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <ul class="footer-links">
+        <li><a href="research.html">Research</a></li>
+        <li><a href="research.html">Whitepapers</a></li>
+        <li><a href="news.html">Blog</a></li>
+        <li><a href="research.html">Documentation</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:info@astranovaint.com">info@astranovaint.com</a></li>
+        <li><a href="#">+977 1 456 7890</a></li>
+        <li><a href="#">Kathmandu, Nepal</a></li>
+        <li><a href="index.html#contact">Get in Touch</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Astranova Intelligence. All rights reserved.</div>
+    <div class="footer-socials-wrap">
+      <span class="footer-follow">Follow Us</span>
+      <div class="footer-socials">
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.518-8.594L2.25 2.25h6.044l4.277 5.662L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function filterJobs(dept, el) {
+  document.querySelectorAll('.dept-tab').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#jobsList .job-item').forEach(item => {
+    const show = dept === 'all' || item.dataset.dept === dept;
+    item.style.display = show ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AN Sentinel — Astranova Intelligence</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── PRODUCT HERO ──────────────────────────── */
+.product-detail-hero { position:relative; min-height:520px; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; padding-top:var(--nav-h); }
+.product-detail-hero .hero-bg { position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1527430253228-e93688616381?w=1800&q=80') center/cover no-repeat; }
+.product-detail-hero .hero-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(to right,rgba(2,10,20,.98) 40%,rgba(2,10,20,.55) 100%), linear-gradient(to bottom,transparent 30%,rgba(2,10,20,.96) 100%); }
+.product-hero-content { position:relative; z-index:2; padding:56px var(--section-px); display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; }
+.product-hero-left {}
+.breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:18px; font-family:var(--font-sub); font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); }
+.breadcrumb a { color:var(--accent); transition:opacity .2s; }
+.product-hero-code { font-family:var(--font-head); font-size:11px; font-weight:700; letter-spacing:4px; color:var(--accent); text-transform:uppercase; margin-bottom:8px; }
+.product-hero-name { font-family:var(--font-head); font-size:clamp(30px,4vw,60px); font-weight:900; text-transform:uppercase; letter-spacing:2px; line-height:1.05; margin-bottom:14px; }
+.product-hero-name .hl { color:var(--accent); }
+.product-hero-tagline { font-size:13px; color:var(--text-muted); line-height:1.85; max-width:480px; margin-bottom:28px; }
+.product-hero-actions { display:flex; gap:10px; flex-wrap:wrap; }
+.product-hero-right { display:grid; grid-template-columns:1fr 1fr; gap:2px; align-self:end; }
+.product-kpi { background:rgba(8,22,40,.85); border:1px solid var(--border); padding:20px 22px; border-top:2px solid var(--accent); }
+.product-kpi-val { font-family:var(--font-head); font-size:24px; font-weight:900; color:var(--accent); line-height:1; margin-bottom:4px; }
+.product-kpi-lbl { font-family:var(--font-sub); font-size:9px; font-weight:600; letter-spacing:2px; color:var(--text-muted); text-transform:uppercase; }
+
+/* ── OVERVIEW SECTION ──────────────────────── */
+.product-overview { display:grid; grid-template-columns:1.2fr 1fr; gap:2px; }
+.product-overview-text { padding:48px 40px; background:var(--bg-card); border:1px solid var(--border); }
+.product-overview-title { font-family:var(--font-sub); font-size:22px; font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-bottom:16px; }
+.product-overview-body { font-size:12.5px; color:var(--text-muted); line-height:1.95; }
+.product-overview-body p { margin-bottom:14px; }
+.product-features-col { background:var(--bg-deep); border:1px solid var(--border); padding:32px 30px; }
+.feature-list-title { font-family:var(--font-sub); font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--accent); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+.feature-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0; }
+.feature-list li { display:flex; align-items:flex-start; gap:12px; padding:13px 0; border-bottom:1px solid var(--border); font-size:12px; color:var(--text-muted); line-height:1.6; }
+.feature-list li:last-child { border-bottom:none; }
+.feature-list li::before { content:''; display:block; width:6px; height:6px; background:var(--accent); flex-shrink:0; margin-top:5px; }
+
+/* ── SPECS TABLE ───────────────────────────── */
+.specs-table-wrap { overflow-x:auto; }
+.specs-table { width:100%; border-collapse:collapse; font-size:12px; }
+.specs-table th { font-family:var(--font-sub); font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); padding:12px 20px; text-align:left; border-bottom:1px solid var(--border); background:var(--bg-deep); }
+.specs-table td { padding:12px 20px; border-bottom:1px solid rgba(255,255,255,.04); color:var(--text-muted); }
+.specs-table tr:last-child td { border-bottom:none; }
+.specs-table tr:nth-child(odd) td { background:rgba(255,255,255,.015); }
+.specs-table td:first-child { font-family:var(--font-sub); font-weight:600; color:var(--fg); letter-spacing:.5px; white-space:nowrap; }
+.specs-table td:last-child { color:var(--accent); }
+
+/* ── USE CASES ─────────────────────────────── */
+.use-cases-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.use-case-card { background:var(--bg-card); border:1px solid var(--border); padding:26px 22px; transition:border-color .3s; }
+.use-case-card:hover { border-color:var(--accent); }
+.uc-icon { width:38px; height:38px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:12px; color:var(--accent); }
+.uc-title { font-family:var(--font-sub); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+.uc-desc { font-size:11.5px; color:var(--text-muted); line-height:1.75; }
+
+/* ── GALLERY STRIP ─────────────────────────── */
+.gallery-strip { display:grid; grid-template-columns:2fr 1fr 1fr; gap:2px; height:300px; }
+.gallery-img { overflow:hidden; position:relative; }
+.gallery-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.6) saturate(.8); transition:filter .4s,transform .5s; cursor:pointer; }
+.gallery-img:hover img { filter:brightness(.85) saturate(1); transform:scale(1.04); }
+
+/* ── RELATED PRODUCTS ──────────────────────── */
+.related-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.related-card { background:var(--bg-card); border:1px solid var(--border); overflow:hidden; transition:border-color .3s; }
+.related-card:hover { border-color:var(--accent); }
+.related-img { height:160px; overflow:hidden; }
+.related-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.5) saturate(.7); transition:filter .4s,transform .5s; }
+.related-card:hover .related-img img { filter:brightness(.72) saturate(1); transform:scale(1.06); }
+.related-body { padding:16px 18px; }
+.related-code { font-family:var(--font-sub); font-size:9px; font-weight:700; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:4px; }
+.related-name { font-family:var(--font-sub); font-size:14px; font-weight:700; text-transform:uppercase; margin-bottom:10px; }
+.related-link { font-family:var(--font-sub); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); display:inline-flex; align-items:center; gap:5px; transition:gap .2s; }
+.related-link:hover { gap:9px; }
+
+/* ── REQUEST PANEL ─────────────────────────── */
+.request-panel { background:linear-gradient(135deg,rgba(0,119,255,.12),rgba(0,200,248,.05)); border:1px solid rgba(0,200,248,.2); padding:48px var(--section-px); display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.rp-left { }
+.rp-label { font-family:var(--font-sub); font-size:10px; font-weight:700; letter-spacing:3px; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
+.rp-title { font-family:var(--font-head); font-size:clamp(20px,2.5vw,34px); font-weight:900; text-transform:uppercase; letter-spacing:2px; line-height:1.2; margin-bottom:14px; }
+.rp-title .hl { color:var(--accent); }
+.rp-desc { font-size:12.5px; color:var(--text-muted); line-height:1.85; }
+.rp-right { display:flex; flex-direction:column; gap:10px; }
+.rp-input { background:var(--bg-dark); border:1px solid var(--border); padding:12px 16px; font-family:var(--font-sub); font-size:11px; color:var(--fg); outline:none; transition:border-color .25s; }
+.rp-input:focus { border-color:var(--accent); }
+.rp-input::placeholder { color:var(--text-muted); }
+.rp-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.rp-select { background:var(--bg-dark); border:1px solid var(--border); padding:12px 16px; font-family:var(--font-sub); font-size:11px; color:var(--fg); outline:none; appearance:none; cursor:pointer; }
+.rp-submit { font-family:var(--font-sub); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; background:var(--accent); color:var(--bg-dark); padding:14px 24px; border:none; cursor:pointer; transition:opacity .25s; }
+.rp-submit:hover { opacity:.85; }
+
+/* ── CTA BAR ───────────────────────────────── */
+.page-cta { background:rgba(5,15,30,.98); border-top:1px solid var(--border); padding:32px var(--section-px); display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+.page-cta-text { font-family:var(--font-sub); font-size:12px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); }
+.page-cta-btns { display:flex; gap:10px; flex-wrap:wrap; }
+
+@media(max-width:1024px){ .product-hero-content{grid-template-columns:1fr; gap:32px;} .product-hero-right{grid-template-columns:repeat(4,1fr);} .product-overview{grid-template-columns:1fr;} .use-cases-grid{grid-template-columns:1fr 1fr;} .request-panel{grid-template-columns:1fr;} .gallery-strip{grid-template-columns:1fr 1fr; height:auto;} .gallery-strip .gallery-img{height:180px;} }
+@media(max-width:768px){ .product-hero-right{grid-template-columns:1fr 1fr;} .related-grid{grid-template-columns:1fr 1fr;} .rp-row{grid-template-columns:1fr;} .page-cta{flex-direction:column; align-items:flex-start;} .gallery-strip{grid-template-columns:1fr 1fr; height:auto;} }
+@media(max-width:480px){ .use-cases-grid{grid-template-columns:1fr;} .product-hero-right{grid-template-columns:1fr 1fr;} .related-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════ -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.svg" alt="Astranova Intelligence" width="160" height="48">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#technologies">Technologies</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="products.html" style="color:var(--accent)">Products</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="index.html#about">About Us</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="index.html#contact" class="nav-cta">Partner With Us</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+    <li><a href="index.html#technologies" onclick="closeMobileMenu()">Technologies</a></li>
+    <li><a href="solutions.html" onclick="closeMobileMenu()">Solutions</a></li>
+    <li><a href="products.html" onclick="closeMobileMenu()">Products</a></li>
+    <li><a href="research.html" onclick="closeMobileMenu()">Research</a></li>
+    <li><a href="index.html#about" onclick="closeMobileMenu()">About Us</a></li>
+    <li><a href="careers.html" onclick="closeMobileMenu()">Careers</a></li>
+    <li><a href="index.html#contact" onclick="closeMobileMenu()">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="btn-primary mobile-cta" onclick="closeMobileMenu()">Partner With Us →</a>
+</div>
+
+<!-- ══ PRODUCT HERO ═══════════════════════════════ -->
+<div class="product-detail-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="product-hero-content">
+    <div class="product-hero-left">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="products.html">Products</a><span>/</span><span>AN Sentinel</span></div>
+      <div class="product-hero-code">AN-01 · AI Systems · Flagship</div>
+      <h1 class="product-hero-name">AN <span class="hl">Sentinel</span></h1>
+      <p class="product-hero-tagline">Military-grade AI surveillance and threat intelligence platform. Real-time multi-sensor fusion, autonomous alert escalation, and sovereign edge processing — no cloud required.</p>
+      <div class="product-hero-actions">
+        <a href="#request" class="btn-primary">Request Demo →</a>
+        <a href="#specs" class="btn-outline">View Specifications</a>
+      </div>
+    </div>
+    <div class="product-hero-right">
+      <div class="product-kpi"><div class="product-kpi-val">98.5%</div><div class="product-kpi-lbl">Detection Accuracy</div></div>
+      <div class="product-kpi"><div class="product-kpi-val">&lt;200ms</div><div class="product-kpi-lbl">Alert Latency</div></div>
+      <div class="product-kpi"><div class="product-kpi-val">16km²</div><div class="product-kpi-lbl">Coverage Area</div></div>
+      <div class="product-kpi"><div class="product-kpi-val">99.8%</div><div class="product-kpi-lbl">System Uptime</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ OVERVIEW ═══════════════════════════════════ -->
+<div class="product-overview">
+  <div class="product-overview-text fade-up">
+    <div class="product-overview-title">System Overview</div>
+    <div class="product-overview-body">
+      <p>The AN Sentinel is Astranova's flagship AI-powered surveillance and situational awareness platform, engineered for national security, border management, and critical infrastructure protection. Unlike conventional CCTV or imported surveillance hardware, AN Sentinel runs entirely on sovereign infrastructure — no video data leaves the deployment country.</p>
+      <p>At its core, the platform fuses data from optical cameras, thermal imagers, acoustic sensors, and radar modules into a single real-time intelligence picture. A custom-trained edge AI model — running on our AN Cortex compute unit — detects, classifies, and tracks threats without any cloud connection, achieving sub-200ms alert latency even in contested or denied environments.</p>
+      <p>AN Sentinel scales from a single hardened installation to a networked perimeter spanning hundreds of kilometers, all managed from a single web-based command dashboard with role-based access, full audit trails, and encrypted communications throughout.</p>
+    </div>
+  </div>
+  <div class="product-features-col fade-up">
+    <div class="feature-list-title">Core Capabilities</div>
+    <ul class="feature-list">
+      <li>Real-time AI object detection and classification across 50+ threat categories including humans, vehicles, watercraft, and low-altitude aircraft</li>
+      <li>Multi-sensor data fusion: optical, thermal, acoustic, radar, and millimeter-wave inputs unified in one intelligence layer</li>
+      <li>Sovereign edge processing — all computation on-premise, zero data exfiltration</li>
+      <li>Automated threat escalation with configurable response protocols and multi-channel alerting</li>
+      <li>Encrypted mesh communications between nodes using AN Shield cryptographic stack</li>
+      <li>Hardened hardware rated for −40°C to +70°C, IP67, MIL-STD-810H</li>
+      <li>Offline operation: full capability maintained with zero internet connectivity</li>
+      <li>Web-based command center with role-based access, audit log, and live replay</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ GALLERY ════════════════════════════════════ -->
+<div class="gallery-strip">
+  <div class="gallery-img">
+    <img src="https://images.unsplash.com/photo-1527430253228-e93688616381?w=900&q=80" alt="AN Sentinel system">
+  </div>
+  <div class="gallery-img">
+    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&q=80" alt="AN Sentinel dashboard">
+  </div>
+  <div class="gallery-img">
+    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=80" alt="AN Sentinel deployment">
+  </div>
+</div>
+
+<!-- ══ SPECIFICATIONS ═════════════════════════════ -->
+<section style="background:var(--bg-dark); padding:64px var(--section-px);" id="specs">
+  <div class="section-header fade-up" style="margin-bottom:32px;">
+    <div class="section-label"><span class="dot"></span> Technical Data Sheet</div>
+    <h2 class="section-title">Technical <span class="hl">Specifications</span></h2>
+  </div>
+
+  <div class="specs-table-wrap fade-up">
+    <table class="specs-table">
+      <thead>
+        <tr>
+          <th style="width:30%">Parameter</th>
+          <th style="width:40%">Specification</th>
+          <th style="width:30%">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>AI Detection Accuracy</td><td>98.5% mAP@IoU0.5</td><td>Custom AN-Det model, 50+ classes</td></tr>
+        <tr><td>Alert Latency</td><td>&lt; 200 ms end-to-end</td><td>Edge inference, no cloud roundtrip</td></tr>
+        <tr><td>Optical Resolution</td><td>4K @ 60fps per channel</td><td>Up to 32 channels per node</td></tr>
+        <tr><td>Thermal Imaging</td><td>640×512 @ 30fps, &lt;30mK NETD</td><td>Detection range 2.5km (human)</td></tr>
+        <tr><td>Radar Module</td><td>77GHz FMCW, 300m range</td><td>Optional; velocity + distance</td></tr>
+        <tr><td>AI Compute</td><td>AN Cortex Edge Unit — 64 TOPS</td><td>NPU + GPU hybrid; field-replaceable</td></tr>
+        <tr><td>Network Connectivity</td><td>Fiber / 4G LTE / LoRa mesh</td><td>Fully offline mode supported</td></tr>
+        <tr><td>Encryption</td><td>AES-256-GCM + Kyber-1024 KEX</td><td>Post-quantum ready</td></tr>
+        <tr><td>Power Consumption</td><td>180W typical / 240W peak</td><td>Solar + battery backup option</td></tr>
+        <tr><td>Operating Temperature</td><td>−40°C to +70°C</td><td>Tested to MIL-STD-810H</td></tr>
+        <tr><td>Ingress Protection</td><td>IP67</td><td>Dust-tight, immersion to 1m/30min</td></tr>
+        <tr><td>Coverage Area (per node)</td><td>16 km² (flat terrain)</td><td>With optional radar extension</td></tr>
+        <tr><td>System Uptime SLA</td><td>99.8%</td><td>Supported deployment contract</td></tr>
+        <tr><td>Command Interface</td><td>Web-based, role-based access</td><td>API available; SAML/OIDC SSO</td></tr>
+        <tr><td>Certifications</td><td>MIL-STD-810H, IP67, CE, NDAA</td><td>Additional certifications on request</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ USE CASES ══════════════════════════════════ -->
+<section style="background:var(--bg-deep); padding:64px var(--section-px); border-top:1px solid var(--border);">
+  <div class="section-header fade-up" style="margin-bottom:36px;">
+    <div class="section-label"><span class="dot"></span> Deployment Scenarios</div>
+    <h2 class="section-title">Use <span class="hl">Cases</span></h2>
+  </div>
+
+  <div class="use-cases-grid fade-up">
+    <div class="use-case-card">
+      <div class="uc-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="uc-title">Border Security</div>
+      <div class="uc-desc">Continuous 24/7 monitoring of land borders with automated detection of unauthorized crossings, tunnel activity, and vehicle incursions — reducing manpower requirements by up to 60%.</div>
+    </div>
+    <div class="use-case-card">
+      <div class="uc-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+      <div class="uc-title">Critical Infrastructure</div>
+      <div class="uc-desc">Protecting power plants, dams, airports, government buildings, and data centers against physical intrusion, drone overflights, and perimeter breaches.</div>
+    </div>
+    <div class="use-case-card">
+      <div class="uc-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+      <div class="uc-title">Urban Surveillance</div>
+      <div class="uc-desc">City-scale monitoring networks with real-time crowd analytics, incident detection, and integration with emergency dispatch systems — maintaining privacy by design through on-device processing.</div>
+    </div>
+    <div class="use-case-card">
+      <div class="uc-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2.5 20.5s5-5 9-5 9 5 9 5"/><circle cx="12" cy="10" r="4"/></svg></div>
+      <div class="uc-title">Wildlife & Forest</div>
+      <div class="uc-desc">Deployed in national parks and conservation zones to detect poaching activity, illegal logging, and wildfire ignition — with specialized models trained on local fauna.</div>
+    </div>
+    <div class="use-case-card">
+      <div class="uc-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+      <div class="uc-title">Port & Harbor</div>
+      <div class="uc-desc">Multi-layer maritime surveillance combining surface radar, thermal imaging, and acoustic sensors to detect unauthorized vessels, smuggling activity, and waterway intrusions.</div>
+    </div>
+    <div class="use-case-card">
+      <div class="uc-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div class="uc-title">Crowd Safety</div>
+      <div class="uc-desc">Mass event safety management with real-time density analytics, stampede prediction models, and automated emergency coordination — protecting gatherings of any scale.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REQUEST DEMO ═══════════════════════════════ -->
+<section id="request" class="request-panel">
+  <div class="rp-left fade-up">
+    <div class="rp-label">Get Started</div>
+    <div class="rp-title">Request a <span class="hl">Demo</span> or Quote</div>
+    <div class="rp-desc">Our field team will reach out within 48 hours to schedule a technical briefing and demonstration at your site or via secure video conference.</div>
+  </div>
+  <div class="rp-right fade-up">
+    <div class="rp-row">
+      <input class="rp-input" type="text" placeholder="First Name">
+      <input class="rp-input" type="text" placeholder="Last Name">
+    </div>
+    <input class="rp-input" type="email" placeholder="Official Email Address">
+    <input class="rp-input" type="text" placeholder="Organization / Ministry">
+    <select class="rp-input rp-select">
+      <option value="" disabled selected>Interest Type</option>
+      <option>Request a Demo</option>
+      <option>Request a Quote</option>
+      <option>Technical Specification Briefing</option>
+      <option>Pilot Program Inquiry</option>
+      <option>Partnership Inquiry</option>
+    </select>
+    <button class="rp-submit">Submit Request →</button>
+  </div>
+</section>
+
+<!-- ══ RELATED PRODUCTS ═══════════════════════════ -->
+<section style="background:var(--bg-dark); padding:64px var(--section-px); border-top:1px solid var(--border);">
+  <div class="section-header fade-up" style="margin-bottom:32px;">
+    <div class="section-label"><span class="dot"></span> Often Deployed Together</div>
+    <h2 class="section-title">Related <span class="hl">Products</span></h2>
+  </div>
+
+  <div class="related-grid fade-up">
+    <div class="related-card">
+      <div class="related-img"><img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&q=80" alt="AN StrikeHawk"></div>
+      <div class="related-body">
+        <div class="related-code">AN-08</div>
+        <div class="related-name">AN StrikeHawk</div>
+        <a href="product-detail.html" class="related-link">View Product →</a>
+      </div>
+    </div>
+    <div class="related-card">
+      <div class="related-img"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&q=80" alt="AN Shield"></div>
+      <div class="related-body">
+        <div class="related-code">AN-06</div>
+        <div class="related-name">AN Shield</div>
+        <a href="product-detail.html" class="related-link">View Product →</a>
+      </div>
+    </div>
+    <div class="related-card">
+      <div class="related-img"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="AN Cortex"></div>
+      <div class="related-body">
+        <div class="related-code">AN-09</div>
+        <div class="related-name">AN Cortex</div>
+        <a href="product-detail.html" class="related-link">View Product →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOTTOM CTA BAR ═══════════════════════════════ -->
+<div class="page-cta">
+  <div class="page-cta-text">← Back to all products</div>
+  <div class="page-cta-btns">
+    <a href="products.html" class="btn-outline">All Products</a>
+    <a href="solutions.html" class="btn-outline">Solutions</a>
+    <a href="index.html#contact" class="btn-primary">Contact Sales →</a>
+  </div>
+</div>
+
+<!-- ══ FOOTER ════════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="nav-logo" style="margin-bottom:6px;">
+        <img src="assets/logo.svg" alt="Astranova Intelligence" width="160" height="48">
+      </a>
+      <p class="footer-brand-desc">Building sovereign AI, robotics, and decentralized infrastructure for a smarter, safer future.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#about">Mission</a></li>
+        <li><a href="index.html#about">Values</a></li>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="news.html">Newsroom</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Technologies</div>
+      <ul class="footer-links">
+        <li><a href="index.html#technologies">AI &amp; Intelligence</a></li>
+        <li><a href="index.html#technologies">Robotics</a></li>
+        <li><a href="index.html#technologies">Drone Systems</a></li>
+        <li><a href="index.html#technologies">Agro-IoT</a></li>
+        <li><a href="index.html#technologies">Cybersecurity</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <ul class="footer-links">
+        <li><a href="research.html">Research</a></li>
+        <li><a href="research.html">Whitepapers</a></li>
+        <li><a href="news.html">Blog</a></li>
+        <li><a href="research.html">Documentation</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:info@astranovaint.com">info@astranovaint.com</a></li>
+        <li><a href="#">+977 1 456 7890</a></li>
+        <li><a href="#">Kathmandu, Nepal</a></li>
+        <li><a href="index.html#contact">Get in Touch</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Astranova Intelligence. All rights reserved.</div>
+    <div class="footer-socials-wrap">
+      <span class="footer-follow">Follow Us</span>
+      <div class="footer-socials">
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.518-8.594L2.25 2.25h6.044l4.277 5.662L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
