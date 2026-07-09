@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astranova Intelligence</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════ -->
+<nav id="mainNav">
+  <a href="#home" class="nav-logo">
+    <img src="assets/logo.svg" alt="Astranova Intelligence" width="160" height="48">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#technologies">Technologies</a></li>
+    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#contact" class="nav-cta">Partner With Us</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-nav-links">
+    <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+    <li><a href="#technologies" onclick="closeMobileMenu()">Technologies</a></li>
+    <li><a href="#solutions" onclick="closeMobileMenu()">Solutions</a></li>
+    <li><a href="#products" onclick="closeMobileMenu()">Products</a></li>
+    <li><a href="#research" onclick="closeMobileMenu()">Research</a></li>
+    <li><a href="#about" onclick="closeMobileMenu()">About Us</a></li>
+    <li><a href="careers.html" onclick="closeMobileMenu()">Careers</a></li>
+    <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-primary mobile-cta" onclick="closeMobileMenu()">Partner With Us →</a>
+</div>
+
+<!-- ══ HERO ══════════════════════════════════════ -->
+<section id="home" style="padding:0;">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content" style="padding-top:calc(var(--nav-h) + 60px); padding-bottom: 40px;">
+    <div class="hero-tag"><span class="dot"></span> Sovereign Intelligence Infrastructure</div>
+    <h1 class="hero-title">Building<br>Sovereign<br><span class="hl">Intelligence</span><br>Infrastructure.</h1>
+    <p class="hero-desc">AI, Robotics, Cybersecurity, Drones, Agro-IoT and Decentralized Systems engineered for resilient future nations.</p>
+    <div class="hero-btns">
+      <a href="#technologies" class="btn-primary">Explore Systems →</a>
+      <a href="#contact" class="btn-outline">Partner With Us</a>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-tech-strip">
+      <div class="hero-tech-item">
+        <div class="hero-tech-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+        <div><div class="hero-tech-name">AI & Intelligence</div><div class="hero-tech-sub">Multi-learning systems</div></div>
+      </div>
+      <div class="hero-tech-item">
+        <div class="hero-tech-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+        <div><div class="hero-tech-name">Robotics</div><div class="hero-tech-sub">Autonomous robots</div></div>
+      </div>
+      <div class="hero-tech-item">
+        <div class="hero-tech-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div><div class="hero-tech-name">Drone Systems</div><div class="hero-tech-sub">Mission-critical aerial</div></div>
+      </div>
+      <div class="hero-tech-item">
+        <div class="hero-tech-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 7 7 3 2 3s2 9 10 9zM12 12c0-5 5-9 10-9s-2 9-10 9z"/></svg></div>
+        <div><div class="hero-tech-name">Agro-IoT</div><div class="hero-tech-sub">Smart precision farming</div></div>
+      </div>
+      <div class="hero-tech-item">
+        <div class="hero-tech-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><div class="hero-tech-name">Cybersecurity</div><div class="hero-tech-sub">Decentralized monitoring</div></div>
+      </div>
+      <div class="hero-tech-item">
+        <div class="hero-tech-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <div><div class="hero-tech-name">Decentralized Internet</div><div class="hero-tech-sub">Data security, sovereignty</div></div>
+      </div>
+    </div>
+    <div class="hero-stats-strip">
+      <div class="hero-stat"><div class="hero-stat-num">120+</div><div class="hero-stat-lbl">Systems Deployed</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">25K+</div><div class="hero-stat-lbl">Farms Connected</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">2M+</div><div class="hero-stat-lbl">Acres Monitored</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">1.5PB+</div><div class="hero-stat-lbl">Data Secured</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">500+</div><div class="hero-stat-lbl">Communities Connected</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY PARTNERS -->
+<!-- Temporarily hidden per request (not needed for now). Markup preserved below for future re-enable.
+<div id="partners">
+  <div class="partners-label">Trusted By Partners</div>
+  <div class="partners-row">
+    <div class="partner-logo"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Nepal Army</div>
+    <div class="partner-logo"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>Nepal Police</div>
+    <div class="partner-logo"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>ICIMOD</div>
+    <div class="partner-logo"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Nepal Telecom</div>
+    <div class="partner-logo"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 7 7 3 2 3s2 9 10 9zM12 12c0-5 5-9 10-9s-2 9-10 9z"/></svg>WWF Nepal</div>
+    <div class="partner-logo"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>KMC</div>
+  </div>
+</div>
+-->
+
+
+<div class="section-divider"></div>
+
+<!-- ══ TECHNOLOGIES ══════════════════════════════ -->
+<section id="technologies">
+  <div class="section-header-row fade-up">
+    <div>
+      <div class="section-label">Technologies</div>
+      <h2 class="section-title">Our <span class="hl">Technologies</span></h2>
+      <p class="section-desc">Astranova combines cutting-edge technologies to deliver integrated, intelligent and autonomous solutions.</p>
+    </div>
+  </div>
+  <div class="tech-cards-row fade-up">
+    <div class="tech-card" onclick="switchTab('ai',event)">
+      <div class="tech-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+      <div class="tech-card-name">AI & Intelligence</div>
+      <div class="tech-card-desc">Advanced AI models, computer vision, predictive analytics and neural-learning systems.</div>
+    </div>
+    <div class="tech-card" onclick="switchTab('robotics',event)">
+      <div class="tech-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+      <div class="tech-card-name">Robotics</div>
+      <div class="tech-card-desc">Autonomous robots for logistics, cleaning, inspection and remote operations.</div>
+    </div>
+    <div class="tech-card" onclick="switchTab('drones',event)">
+      <div class="tech-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <div class="tech-card-name">Drone Systems</div>
+      <div class="tech-card-desc">Drone intelligence for agriculture, airborne and mission-critical operations.</div>
+    </div>
+    <div class="tech-card" onclick="switchTab('agro',event)">
+      <div class="tech-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 7 7 3 2 3s2 9 10 9zM12 12c0-5 5-9 10-9s-2 9-10 9z"/></svg></div>
+      <div class="tech-card-name">Agro-IoT</div>
+      <div class="tech-card-desc">Smart farming, decentralized monitoring, irrigation and farm data analysis.</div>
+    </div>
+    <div class="tech-card" onclick="switchTab('cyber',event)">
+      <div class="tech-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="tech-card-name">Cybersecurity</div>
+      <div class="tech-card-desc">Data security, decentralized infrastructure and cyber defense systems.</div>
+    </div>
+    <div class="tech-card" onclick="switchTab('decentral',event)">
+      <div class="tech-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+      <div class="tech-card-name">Decentralized Internet</div>
+      <div class="tech-card-desc">Distributed, decentralized infrastructure and cyber resilient connectivity.</div>
+    </div>
+  </div>
+
+  <div class="tech-tabs-wrap fade-up">
+    <div class="tech-tab-list">
+      <div class="tech-tab active" onclick="switchTab('ai',event)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12"/></svg>AI & Intelligence</div>
+      <div class="tech-tab" onclick="switchTab('robotics',event)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Robotics</div>
+      <div class="tech-tab" onclick="switchTab('drones',event)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>Drone Systems</div>
+      <div class="tech-tab" onclick="switchTab('agro',event)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 7 7 3 2 3s2 9 10 9z"/></svg>Agro-IoT</div>
+      <div class="tech-tab" onclick="switchTab('cyber',event)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Cybersecurity</div>
+      <div class="tech-tab" onclick="switchTab('decentral',event)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Decentralized Internet</div>
+    </div>
+    <div>
+      <div id="tab-ai" class="tech-panel active">
+        <div>
+          <div class="tech-panel-title">AI & Intelligence</div>
+          <p class="tech-panel-desc">Advanced AI models, computer vision, predictive analytics and neural-learning systems that turn data into actionable intelligence for governments and enterprises.</p>
+          <ul class="tech-features">
+            <li>Computer Vision</li><li>Natural Language Processing</li>
+            <li>Predictive Analytics</li><li>Neuro-Learning</li>
+            <li>Autonomous Decision Systems</li>
+          </ul>
+        </div>
+        <div class="tech-stats-side">
+          <div class="tech-stat-box"><div class="tech-stat-num">50+</div><div class="tech-stat-lbl">AI Models</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">10M+</div><div class="tech-stat-lbl">Data Points/Day</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">95%</div><div class="tech-stat-lbl">Accuracy</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">24/7</div><div class="tech-stat-lbl">Operations</div></div>
+        </div>
+      </div>
+      <div id="tab-robotics" class="tech-panel">
+        <div>
+          <div class="tech-panel-title">Robotics</div>
+          <p class="tech-panel-desc">Autonomous robotic systems engineered for logistics, inspection, disaster response, and industrial operations in extreme and remote environments.</p>
+          <ul class="tech-features">
+            <li>Autonomous Navigation</li><li>Terrain Adaptation</li>
+            <li>Payload Manipulation</li><li>Remote Operation</li>
+            <li>Swarm Coordination</li>
+          </ul>
+        </div>
+        <div class="tech-stats-side">
+          <div class="tech-stat-box"><div class="tech-stat-num">120+</div><div class="tech-stat-lbl">Units Deployed</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">48hr</div><div class="tech-stat-lbl">Endurance</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">50kg</div><div class="tech-stat-lbl">Max Payload</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">5km</div><div class="tech-stat-lbl">Range Radius</div></div>
+        </div>
+      </div>
+      <div id="tab-drones" class="tech-panel">
+        <div>
+          <div class="tech-panel-title">Drone Systems</div>
+          <p class="tech-panel-desc">Advanced drone systems designed for cargo delivery, precision agriculture, border surveillance, disaster response, and mission-critical aerial intelligence.</p>
+          <ul class="tech-features">
+            <li>Autonomous Flight Control</li><li>Multi-spectral Imaging</li>
+            <li>Beyond Visual Line of Sight</li><li>Payload Delivery</li>
+            <li>Swarm Operations</li>
+          </ul>
+        </div>
+        <div class="tech-stats-side">
+          <div class="tech-stat-box"><div class="tech-stat-num">8hr</div><div class="tech-stat-lbl">Flight Duration</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">150km</div><div class="tech-stat-lbl">Max Range</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">25kg</div><div class="tech-stat-lbl">Max Payload</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">All-weather</div><div class="tech-stat-lbl">Operations</div></div>
+        </div>
+      </div>
+      <div id="tab-agro" class="tech-panel">
+        <div>
+          <div class="tech-panel-title">Agro-IoT</div>
+          <p class="tech-panel-desc">Smart farming ecosystems that combine IoT sensors, drone monitoring, AI-driven analytics, and automated irrigation to revolutionize agricultural productivity.</p>
+          <ul class="tech-features">
+            <li>Soil Health Monitoring</li><li>Smart Irrigation Control</li>
+            <li>Crop Disease Detection</li><li>Yield Prediction</li>
+            <li>Supply Chain Traceability</li>
+          </ul>
+        </div>
+        <div class="tech-stats-side">
+          <div class="tech-stat-box"><div class="tech-stat-num">25K+</div><div class="tech-stat-lbl">Farms Connected</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">40%</div><div class="tech-stat-lbl">Yield Increase</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">60%</div><div class="tech-stat-lbl">Water Saved</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">2M+</div><div class="tech-stat-lbl">Acres Monitored</div></div>
+        </div>
+      </div>
+      <div id="tab-cyber" class="tech-panel">
+        <div>
+          <div class="tech-panel-title">Cybersecurity</div>
+          <p class="tech-panel-desc">Military-grade cybersecurity infrastructure protecting critical national systems, communications, financial networks, and sovereign data from advanced threats.</p>
+          <ul class="tech-features">
+            <li>Zero-Trust Architecture</li><li>Threat Intelligence</li>
+            <li>Encrypted Communications</li><li>SOC Operations</li>
+            <li>Incident Response</li>
+          </ul>
+        </div>
+        <div class="tech-stats-side">
+          <div class="tech-stat-box"><div class="tech-stat-num">1.5PB+</div><div class="tech-stat-lbl">Data Secured</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">&lt;2min</div><div class="tech-stat-lbl">Threat Response</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">99.9%</div><div class="tech-stat-lbl">Uptime SLA</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">24/7</div><div class="tech-stat-lbl">SOC Monitoring</div></div>
+        </div>
+      </div>
+      <div id="tab-decentral" class="tech-panel">
+        <div>
+          <div class="tech-panel-title">Decentralized Internet</div>
+          <p class="tech-panel-desc">Resilient, distributed mesh networks that bring internet access to remote and underserved communities, free from single points of failure or centralized control.</p>
+          <ul class="tech-features">
+            <li>Mesh Network Architecture</li><li>Satellite Integration</li>
+            <li>LoRa & 5G Hybrid</li><li>Offline-first Applications</li>
+            <li>Community Node Management</li>
+          </ul>
+        </div>
+        <div class="tech-stats-side">
+          <div class="tech-stat-box"><div class="tech-stat-num">500+</div><div class="tech-stat-lbl">Communities</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">1Gbps</div><div class="tech-stat-lbl">Node Bandwidth</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">99%</div><div class="tech-stat-lbl">Availability</div></div>
+          <div class="tech-stat-box"><div class="tech-stat-num">50km</div><div class="tech-stat-lbl">Coverage Radius</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INDUSTRIES ════════════════════════════════ -->
+<section id="industries">
+  <div class="section-header-row fade-up">
+    <div>
+      <div class="section-label">Industries We Serve</div>
+      <h2 class="section-title">Sectors We <span class="hl">Power</span></h2>
+    </div>
+    <a href="#solutions" class="view-all">Explore Solutions →</a>
+  </div>
+  <div class="industries-grid fade-up">
+    <div class="industry-item"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><div class="industry-name">Government</div></div>
+    <div class="industry-item"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div class="industry-name">Defense</div></div>
+    <div class="industry-item"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 7 7 3 2 3s2 9 10 9zM12 12c0-5 5-9 10-9s-2 9-10 9z"/></svg><div class="industry-name">Agriculture</div></div>
+    <div class="industry-item"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg><div class="industry-name">Smart Cities</div></div>
+    <div class="industry-item"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><div class="industry-name">Energy</div></div>
+    <div class="industry-item"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><div class="industry-name">Telecom</div></div>
+    <div class="industry-item"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-7 10 7-10 7z"/><path d="M6 12v5a6 6 0 0012 0v-5"/></svg><div class="industry-name">Education</div></div>
+    <div class="industry-item"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg><div class="industry-name">Climate</div></div>
+    <div class="industry-item"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg><div class="industry-name">Industrial Ops</div></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ PRODUCTS ══════════════════════════════════ -->
+<section id="products">
+  <div class="section-header-row fade-up">
+    <div>
+      <div class="section-label">Flagship Systems</div>
+      <h2 class="section-title">Our <span class="hl">Products</span></h2>
+      <p style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:0;max-width:480px;">High-performance systems built for reliability, scalability and real-world impact.</p>
+    </div>
+    <a href="products.html" class="view-all">View All Products →</a>
+  </div>
+  <div class="products-filter fade-up">
+    <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
+    <button class="filter-btn" onclick="filterProducts('ai',this)">AI Systems</button>
+    <button class="filter-btn" onclick="filterProducts('robotics',this)">Robotics</button>
+    <button class="filter-btn" onclick="filterProducts('drones',this)">Drones</button>
+    <button class="filter-btn" onclick="filterProducts('iot',this)">IoT</button>
+    <button class="filter-btn" onclick="filterProducts('connectivity',this)">Connectivity</button>
+  </div>
+  <div class="products-grid fade-up">
+    <div class="product-card">
+      <div class="product-card-img-wrap"><img src="https://images.unsplash.com/photo-1527430253228-e93688616381?w=600&q=80" alt="AN Sentinel"><div class="product-card-overlay"></div></div>
+      <div class="product-card-body"><div class="product-code">AN-01</div><div class="product-name">AN Sentinel</div><div class="product-short">AI-Powered Surveillance System</div><a href="product-detail.html" class="product-link">View Details →</a></div>
+    </div>
+    <div class="product-card">
+      <div class="product-card-img-wrap"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80" alt="AN AgroGrid"><div class="product-card-overlay"></div></div>
+      <div class="product-card-body"><div class="product-code">AN-02</div><div class="product-name">AN AgroGrid</div><div class="product-short">Autonomous Agriculture Platform</div><a href="product-detail.html" class="product-link">View Details →</a></div>
+    </div>
+    <div class="product-card">
+      <div class="product-card-img-wrap"><img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80" alt="AN Nexus"><div class="product-card-overlay"></div></div>
+      <div class="product-card-body"><div class="product-code">AN-03</div><div class="product-name">AN Nexus</div><div class="product-short">Decentralized Internet System</div><a href="product-detail.html" class="product-link">View Details →</a></div>
+    </div>
+  </div>
+  <div class="products-grid-bottom fade-up">
+    <div class="product-card">
+      <div class="product-card-img-wrap"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80" alt="AN Cargo Rover"><div class="product-card-overlay"></div></div>
+      <div class="product-card-body"><div class="product-code">AN-04</div><div class="product-name">AN Cargo Rover</div><div class="product-short">Autonomous Logistics Robot</div><a href="product-detail.html" class="product-link">View Details →</a></div>
+    </div>
+    <div class="product-card">
+      <div class="product-card-img-wrap"><img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600&q=80" alt="AN AeroVision"><div class="product-card-overlay"></div></div>
+      <div class="product-card-body"><div class="product-code">AN-05</div><div class="product-name">AN AeroVision</div><div class="product-short">Drone Intelligence Platform</div><a href="product-detail.html" class="product-link">View Details →</a></div>
+    </div>
+    <div class="product-card">
+      <div class="product-card-img-wrap"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&q=80" alt="AN Shield"><div class="product-card-overlay"></div></div>
+      <div class="product-card-body"><div class="product-code">AN-06</div><div class="product-name">AN Shield</div><div class="product-short">Cybersecurity Platform</div><a href="product-detail.html" class="product-link">View Details →</a></div>
+    </div>
+  </div>
+  <div style="margin-top:32px;text-align:center;">
+    <a href="products.html" class="btn-outline">View All Products →</a>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ ABOUT ════════════════════════════════════ -->
+<section id="about">
+  <div class="section-header-row fade-up">
+    <div>
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">About <span class="hl">Astranova</span><br>Intelligence</h2>
+    </div>
+  </div>
+  <div class="about-grid fade-up">
+    <div class="about-col-left">
+      <p class="about-lead">We are a deep-tech company building sovereign AI, robotics, and decentralized infrastructure systems for a smarter, safer and more resilient world.</p>
+      <div class="section-label" style="margin-bottom:10px;">Our Mission</div>
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="mission-name">Build Sovereign<br>AI Infrastructure</div>
+          <div class="mission-desc">Empowering nations with independent and long-term national resilience.</div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <div class="mission-name">Empower Communities<br>With Technology</div>
+          <div class="mission-desc">Advanced technologies for underserved regions and communities.</div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10"/></svg></div>
+          <div class="mission-name">Strengthen Nations<br>Through Innovation</div>
+          <div class="mission-desc">Pushing boundaries of technology for real world impact.</div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="mission-name">Protect People &<br>The Planet</div>
+          <div class="mission-desc">We measure success by the value we create for humanity.</div>
+        </div>
+      </div>
+      <div class="journey">
+        <div class="journey-title">Our Journey</div>
+        <div class="journey-steps">
+          <div class="journey-step"><div class="journey-year">2021</div><div class="journey-event">Company Founded</div></div>
+          <div class="journey-step"><div class="journey-year">2022</div><div class="journey-event">First AI & IoT Systems Deployed</div></div>
+          <div class="journey-step"><div class="journey-year">2023</div><div class="journey-event">Drone & Robotics Division Launched</div></div>
+          <div class="journey-step"><div class="journey-year">2024</div><div class="journey-event">Decentralized Internet Pilot Projects</div></div>
+          <div class="journey-step"><div class="journey-year">2025+</div><div class="journey-event">National & Regional Expansion</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-col-right">
+      <img class="about-img" src="https://images.unsplash.com/photo-1580983218765-f663bec07b37?w=700&q=80" alt="About Astranova">
+      <div class="section-label" style="margin:26px 0 12px;">Our Values</div>
+      <div class="values-row">
+        <div class="value-item">
+          <div class="value-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="value-name">Sovereignty</div>
+          <div class="value-desc">Independence and long-term national resilience.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3"/></svg></div>
+          <div class="value-name">Innovation</div>
+          <div class="value-desc">Pushing technology frontiers for real impact.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
+          <div class="value-name">Integrity</div>
+          <div class="value-desc">Transparency, ethics and responsibility.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <div class="value-name">Impact</div>
+          <div class="value-desc">Success measured by value created for nations.</div>
+        </div>
+      </div>
+      <div class="vision-block">
+        <div class="vision-quote">We believe emerging nations should own their intelligence infrastructure, not depend entirely on external systems.</div>
+        <a href="index.html#about" class="vision-link">Discover Our Vision →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOLUTIONS ═════════════════════════════════ -->
+<section id="solutions">
+  <div class="section-header-row fade-up">
+    <div>
+      <div class="section-label">Solutions</div>
+      <div class="solutions-title-big">Solutions For<br><span style="color:var(--accent);">Every Sector</span></div>
+      <p class="solutions-subtitle">Tailored solutions designed to solve real-world challenges across industries and sectors.</p>
+    </div>
+  </div>
+  <div class="solutions-grid fade-up">
+    <div class="solution-card">
+      <img class="solution-img" src="https://images.unsplash.com/photo-1606117331085-5760e3097277?w=600&q=80" alt="Government Solutions">
+      <div class="solution-body"><div class="solution-name">Government Solutions</div><div class="solution-desc">Smart governance, citizen services, and command centers for modern public administration.</div></div>
+    </div>
+    <div class="solution-card">
+      <img class="solution-img" src="https://images.unsplash.com/photo-1527430253228-e93688616381?w=600&q=80" alt="Defense Solutions">
+      <div class="solution-body"><div class="solution-name">Defense Solutions</div><div class="solution-desc">Surveillance, autonomous systems, and tactical intelligence for national security.</div></div>
+    </div>
+    <div class="solution-card">
+      <img class="solution-img" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80" alt="Agriculture Solutions">
+      <div class="solution-body"><div class="solution-name">Agriculture Solutions</div><div class="solution-desc">Smart farming, precision agriculture, and farm analytics for higher yields.</div></div>
+    </div>
+    <div class="solution-card">
+      <img class="solution-img" src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=80" alt="Smart City Solutions">
+      <div class="solution-body"><div class="solution-name">Smart City Solutions</div><div class="solution-desc">Urban intelligence, IoT infrastructure, traffic management and automation.</div></div>
+    </div>
+    <div class="solution-card">
+      <img class="solution-img" src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80" alt="Energy Solutions">
+      <div class="solution-body"><div class="solution-name">Energy Solutions</div><div class="solution-desc">Smart grid monitoring, renewable energy management and optimization systems.</div></div>
+    </div>
+    <div class="solution-card">
+      <img class="solution-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Disaster Management">
+      <div class="solution-body"><div class="solution-name">Disaster Management</div><div class="solution-desc">Early warning, damage assessment, coordination platforms, and real-time analytics.</div></div>
+    </div>
+  </div>
+  <div class="solutions-cta-row">
+    <a href="solutions.html" class="btn-outline">Discover All Solutions →</a>
+  </div>
+</section>
+
+<!-- ══ RESEARCH ══════════════════════════════════ -->
+<section id="research">
+  <div class="section-header-row fade-up">
+    <div>
+      <div class="section-label">Research</div>
+      <h2 class="section-title">Research &amp; <span class="hl">Innovation</span></h2>
+      <p style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:0;max-width:480px;">Our research drives the future. We invest in deep work, advanced AI, robotics autonomy and resilient infrastructure.</p>
+    </div>
+  </div>
+  <div class="research-grid fade-up">
+    <div>
+      <div class="research-areas">
+        <div class="research-area">
+          <div class="research-area-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3"/></svg></div>
+          <div class="research-area-name">AI & Autonomy</div>
+          <div class="research-area-desc">Advanced machine learning and autonomous intelligence systems.</div>
+        </div>
+        <div class="research-area">
+          <div class="research-area-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+          <div class="research-area-name">Robotics</div>
+          <div class="research-area-desc">Next-gen robotic systems for remote and extreme environments.</div>
+        </div>
+        <div class="research-area">
+          <div class="research-area-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div>
+          <div class="research-area-name">Connectivity</div>
+          <div class="research-area-desc">Next-gen networks for remote and scalable environments.</div>
+        </div>
+        <div class="research-area">
+          <div class="research-area-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 7 7 3 2 3s2 9 10 9zM12 12c0-5 5-9 10-9s-2 9-10 9z"/></svg></div>
+          <div class="research-area-name">Climate Tech</div>
+          <div class="research-area-desc">Solutions for monitoring and protecting our planet.</div>
+        </div>
+      </div>
+      <a href="research.html" class="research-cta-link">Visualize Our Research →</a>
+    </div>
+    <div class="research-right">
+      <img class="research-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="Research">
+      <div class="research-metrics">
+        <div class="research-metric"><div class="research-metric-val">50+</div><div class="research-metric-lbl">AI Models in Production</div></div>
+        <div class="research-metric"><div class="research-metric-val">10M+</div><div class="research-metric-lbl">Data Points / Day</div></div>
+        <div class="research-metric"><div class="research-metric-val">95%</div><div class="research-metric-lbl">System Accuracy</div></div>
+        <div class="research-metric"><div class="research-metric-val">24/7</div><div class="research-metric-lbl">Autonomous Ops</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CAREERS ═══════════════════════════════════ -->
+<!-- Temporarily hidden per request (not needed for now). Markup preserved below for future re-enable.
+<section id="careers">
+  <div class="section-header-row fade-up">
+    <div>
+      <div class="section-label">Careers</div>
+      <h2 class="section-title">Build The <span class="hl">Future</span><br>With Us</h2>
+    </div>
+    <a href="careers.html#positions" class="btn-primary">View Open Positions →</a>
+  </div>
+  <div class="careers-layout fade-up">
+    <div>
+      <img class="careers-hero-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=80" alt="Careers at Astranova">
+      <p class="careers-lead">Join a team of engineers, researchers, innovators and dreamers building technologies that shape the future of nations.</p>
+      <div class="section-label" style="margin-bottom:14px;">Why Join Astranova?</div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+          <div class="why-title">Meaningful<br>Projects</div>
+          <div class="why-desc">Work on tech that shapes nations</div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <div class="why-title">Innovative Fast<br>Environment</div>
+          <div class="why-desc">Move fast, build bold</div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div class="why-title">Career Growth &<br>Learning</div>
+          <div class="why-desc">Continuous growth and mentorship</div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10"/></svg></div>
+          <div class="why-title">Impact Millions<br>of Lives</div>
+          <div class="why-desc">Technology that touches communities</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="jobs-section-title">Open Positions</div>
+      <div class="job-list">
+        <div class="job-item">
+          <div class="job-left"><div class="job-title-text">AI Research Engineer</div><div class="job-meta">Kathmandu, Nepal · Full Time</div></div>
+          <div class="job-right"><span class="job-badge">Full Time</span><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+        </div>
+        <div class="job-item">
+          <div class="job-left"><div class="job-title-text">Robotics Engineer</div><div class="job-meta">Kathmandu, Nepal · Full Time</div></div>
+          <div class="job-right"><span class="job-badge">Full Time</span><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+        </div>
+        <div class="job-item">
+          <div class="job-left"><div class="job-title-text">Drone Systems Engineer</div><div class="job-meta">Kathmandu, Nepal · Full Time</div></div>
+          <div class="job-right"><span class="job-badge">Full Time</span><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+        </div>
+        <div class="job-item">
+          <div class="job-left"><div class="job-title-text">Embedded Systems Engineer</div><div class="job-meta">Kathmandu, Nepal · Full Time</div></div>
+          <div class="job-right"><span class="job-badge">Full Time</span><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+        </div>
+        <div class="job-item">
+          <div class="job-left"><div class="job-title-text">Cybersecurity Analyst</div><div class="job-meta">Kathmandu, Nepal · Full Time</div></div>
+          <div class="job-right"><span class="job-badge">Full Time</span><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+        </div>
+      </div>
+      <a href="careers.html#positions" class="jobs-view-all">View All Open Positions →</a>
+    </div>
+  </div>
+</section>
+-->
+
+
+<!-- ══ NEWS ══════════════════════════════════════ -->
+<section id="news">
+  <div class="section-header-row fade-up">
+    <div>
+      <div class="section-label">News & Insights</div>
+      <h2 class="section-title">News &amp; <span class="hl">Insights</span></h2>
+      <p style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:0;">Stay updated with our latest news, stories and insights.</p>
+    </div>
+  </div>
+  <div class="news-tabs fade-up">
+    <div class="news-tab active">All</div>
+    <div class="news-tab">News</div>
+    <div class="news-tab">Insights</div>
+    <div class="news-tab">Events</div>
+  </div>
+  <div class="news-grid fade-up">
+    <div class="news-featured">
+      <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&q=80" alt="News Featured">
+      <div class="news-featured-body">
+        <div class="news-date">May 10, 2024</div>
+        <div class="news-headline">AstraNova Deploys AI-Powered Flood Prediction System in Nepal</div>
+        <p class="news-excerpt">Astranova Intelligence has successfully deployed an AI-driven early warning system to monitor flood-prone regions across Nepal, delivering real-time alerts to communities at risk.</p>
+        <a href="news.html" class="news-read-more">Read More →</a>
+      </div>
+    </div>
+    <div class="news-list">
+      <div class="news-item">
+        <img class="news-item-thumb" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200&q=80" alt="">
+        <div><div class="news-item-title">How Decentralized Internet Can Transform Rural Communities</div><div class="news-item-date">April 22, 2024</div></div>
+      </div>
+      <div class="news-item">
+        <img class="news-item-thumb" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=200&q=80" alt="">
+        <div><div class="news-item-title">AstraAgroGrid: Helping Farmers Increase Yield with AI Technology</div><div class="news-item-date">March 15, 2024</div></div>
+      </div>
+      <div class="news-item">
+        <img class="news-item-thumb" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=200&q=80" alt="">
+        <div><div class="news-item-title">Astranova Cybersecurity Platform Secures Critical Infrastructure</div><div class="news-item-date">February 5, 2024</div></div>
+      </div>
+      <div class="news-item">
+        <img class="news-item-thumb" src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=200&q=80" alt="">
+        <div><div class="news-item-title">Drone Systems: Astranova's Vision for Autonomous Airspace</div><div class="news-item-date">January 18, 2024</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="news-view-all">
+    <a href="news.html" class="view-all">View All News →</a>
+  </div>
+</section>
+
+<!-- ══ FOOTER CTA ═════════════════════════════════ -->
+<div class="footer-cta">
+  <div class="footer-cta-text">Build The Future Infrastructure Of Nations With <span class="hl">Astranova Intelligence.</span></div>
+  <div class="footer-cta-btns">
+    <a href="#contact" class="btn-primary">Contact Us</a>
+    <a href="#contact" class="btn-outline">Partnership Inquiry</a>
+    <a href="#products" class="btn-outline">Drones &amp; Government</a>
+  </div>
+</div>
+
+<!-- ══ CONTACT ════════════════════════════════════ -->
+<section id="contact">
+  <div class="section-header-row fade-up">
+    <div>
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Get In <span class="hl">Touch</span></h2>
+    </div>
+  </div>
+  <div class="contact-grid fade-up">
+    <div>
+      <p class="contact-lead">We'd love to hear from you. Reach out for partnerships, inquiries, or support.</p>
+      <div class="contact-detail">
+        <div class="contact-icon-box"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="contact-detail-title">Headquarters</div><div class="contact-detail-val">Kathmandu, Nepal</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon-box"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="contact-detail-title">Email</div><div class="contact-detail-val">info@astranovaint.com</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon-box"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.8 19.79 19.79 0 01.07 2.2 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
+        <div><div class="contact-detail-title">Phone</div><div class="contact-detail-val">+977 1 456 7890</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon-box"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><div class="contact-detail-title">Working Hours</div><div class="contact-detail-val">Sun – Fri &nbsp; 9:00 AM – 6:00 PM</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" placeholder="John Doe"></div>
+          <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" placeholder="john@example.com"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Subject</label><input type="text" class="form-input" placeholder="Partnership / Inquiry / Support"></div>
+        <div class="form-group"><label class="form-label">Your Message</label><textarea class="form-textarea" placeholder="Tell us about your project or inquiry..."></textarea></div>
+        <button class="btn-submit">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#home" class="nav-logo" style="margin-bottom:6px;">
+        <img src="assets/logo.svg" alt="Astranova Intelligence" width="160" height="48">
+      </a>
+      <p class="footer-brand-desc">Building sovereign AI, robotics, and decentralized infrastructure for a smarter, safer future.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li><li><a href="#about">Mission</a></li>
+        <li><a href="#about">Values</a></li><li><a href="news.html">Case Studies</a></li>
+        <li><a href="news.html">Newsroom</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Technologies</div>
+      <ul class="footer-links">
+        <li><a href="#technologies">AI &amp; Intelligence</a></li><li><a href="#technologies">Robotics</a></li>
+        <li><a href="#technologies">Drone Systems</a></li><li><a href="#technologies">Agro-IoT</a></li>
+        <li><a href="#technologies">Cybersecurity</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <ul class="footer-links">
+        <li><a href="research.html">Research</a></li><li><a href="research.html">Whitepapers</a></li>
+        <li><a href="news.html">Blog</a></li><li><a href="research.html">Documentation</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:info@astranovaint.com">info@astranovaint.com</a></li>
+        <li><a href="#">+977 1 456 7890</a></li>
+        <li><a href="#">Kathmandu, Nepal</a></li>
+        <li><a href="#contact">Get in Touch</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Astranova Intelligence. All rights reserved.</div>
+    <div class="footer-socials-wrap">
+      <span class="footer-follow">Follow Us</span>
+      <div class="footer-socials">
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.518-8.594L2.25 2.25h6.044l4.277 5.662L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+        <div class="social-icon"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="js/main.js"></script>
+</body>
+</html>
